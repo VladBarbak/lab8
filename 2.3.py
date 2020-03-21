@@ -5,17 +5,26 @@
 3) прямий пошук підрядка.
 Barbak Vladuslav 122V
 """
-s='Бук бундючивсь перед дубом, тряс над дубом бурим чубом. Дуб пригнув до чуба бука. Буде букові наука'
-print(s)
-s1=input('Enter a substring ')  # Підстрока не буде найдена,якщо її немає в строці
-i=-1  # Індекси строки
-j=0  # Індекси підстроки
-while (j<len(s1)) and i<(len(s)-len(s1)):
-    j=0
-    i+=1  # Кількість здвигів, є самою позицією підстроки
-    while j<len (s1) and s1[j]==s[i+j]:
-        j+=1
-if (j==len(s1)):
-    print(f'Substring found in position {i},for {i} shifts')
-else:
-    print('No substring found')
+while True: # Цикл створений для запуску програми з початку
+    s='Бук бундючивсь перед дубом, тряс над дубом бурим чубом. Дуб пригнув до чуба бука. Буде букові наука'
+    print(s)
+    s1=input('Enter a substring ')  # Підстрока не буде найдена,якщо її немає в строці
+    i=-1  # Індекси строки
+    j=0  # Індекси підстроки
+    count=0
+    while (j<len(s1)) and i<(len(s)-len(s1)):
+        j=0
+        i+=1
+        while j<len (s1) and s1[j]==s[i+j]:
+            j+=1
+            count+=2  # Лічильник 2 циклу
+        count+=2  # Лічильник 1 циклу, загальна кількість зрівнять буде рівна сумі двох лічильників
+    if (j==len(s1)):
+        print(f'Substring found in position {i},for {i} shifts')
+    else:
+        print('No substring found')
+    result = input('Want to restart? If yes - 1, No - other: ')  # Просимо користуввача ввести 1- для запуску з початку
+    if result == '1':  # Якщо введене користувачем дорівнює 1, то код запускається з початку
+        continue
+    else:  # Інакше код завершується
+        break
